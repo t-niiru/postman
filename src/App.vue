@@ -3,7 +3,7 @@
     <section class="container">
       <div class="">
         <div class="head">
-          <h1 class="title">tsubuyaki</h1>
+          <h1 class="title">postman</h1>
           <TheUserInfo/>
         </div>
       </div>
