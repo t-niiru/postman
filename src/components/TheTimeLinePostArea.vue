@@ -6,7 +6,7 @@
       </li>
       <li class="input-body">
         <b-field label="Message:">
-          <b-input maxlength="200" type="textarea" placeholder="What's happening?" v-model.trim="body"></b-input>
+          <b-input maxlength="200" type="textarea" placeholder="What's happening?" v-model.trim="message"></b-input>
         </b-field>
       </li>
       <li class="input-submit">
