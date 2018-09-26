@@ -2,7 +2,7 @@
   <li class="media">
     <div class="media-content">
       <div class="content">
-        <img :src="require('../assets/images/' + charNo + '.gif')">
+        <!-- <img :src="require('../assets/images/' + charNo + '.gif')"> -->
         <div class="user-name"><strong>Name:{{ name }}</strong></div>
         <div class="post-message"><span v-html="formattedPost" /></div>
       </div>

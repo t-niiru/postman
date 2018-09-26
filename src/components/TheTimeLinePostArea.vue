@@ -1,20 +1,20 @@
 <template lang="html">
   <form class="postArea" @submit.prevent="doPost">
-    <ul class="input-contents">
-      <li class="input-name">
+    <div class="input-contents">
+      <div class="input-name">
         <p>Name：{{ displayName }}</p>
-      </li>
-      <li class="input-body">
+      </div>
+      <div class="input-body">
         <b-field label="Message:">
           <b-input maxlength="200" type="textarea" placeholder="What's happening?" v-model.trim="message"></b-input>
         </b-field>
-      </li>
-      <li class="input-submit">
+      </div>
+      <div class="input-submit">
         <button class="submit" type="submit">
           つぶやく
         </button>
-      </li>
-    </ul>
+      </div>
+    </div>
   </form>
 </template>
 
@@ -38,12 +38,10 @@ export default {
       if (this.message === '') {
         return
       }
-      var charNo = this.displayName.charCodeAt(0) % 20
       firebase
         .database().ref('posts').push({
           name: this.displayName,
           message: this.message,
-          charNo: charNo,
           date: moment(new Date()).format('YYYY/MM/DD HH:mm'),
           uid: this.uId
         })
@@ -64,7 +62,6 @@ export default {
 }
 .input-body {
   width: 300px;
-  height: 100px;
   margin: 0 auto;
   .label {
     display: block;

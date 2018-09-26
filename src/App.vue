@@ -1,14 +1,12 @@
 <template>
   <div id="app">
+    <h1 class="title">postman</h1>
     <section class="container">
-      <div class="">
-        <div class="head">
-          <h1 class="title">postman</h1>
-          <TheUserInfo/>
-        </div>
-      </div>
       <div class="timeline">
         <TheTimeLine/>
+      </div>
+      <div class="postarea">
+        <TheUserInfo/>
       </div>
     </section>
   </div>

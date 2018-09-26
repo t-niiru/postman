@@ -11,6 +11,7 @@
     </div>
     <!-- ログイン前 -->
     <div class="media" v-else key="logout">
+      postするにはgoogleアカウントでログインしてください。
       <a class="button is-primary" @click="login">Signin with Google</a>
     </div>
   </div>
@@ -25,19 +26,25 @@ export default {
   name: 'TheUserInfo',
   data () {
     return {
-      user: {},
+      user: [],
       users: []
     }
   },
   components: {
     TheTimeLinePostArea
   },
-  created () {
+  created: function () {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.user = user
-        var _this = this
-        _this.users = this.user
+        this.users = user
+        var charNo = this.users.displayName.charCodeAt(0) % 20
+        firebase.database().ref('/users/' + user.uid).set({
+          name: user.displayName,
+          email: user.email,
+          uid: user.uid,
+          charno: charNo
+        })
       } else {
         this.user = user
       }
@@ -51,10 +58,12 @@ export default {
       })
       var _this = this
       _this.users = this.user
-      console.log(_this.user)
     },
     logout () {
       firebase.auth().signOut()
+    },
+    set (user) {
+      console.log('test')
     }
   }
 }

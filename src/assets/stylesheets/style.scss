@@ -7,19 +7,11 @@ body{
   }
 }
 .container {
+  position: relative;
   width: 100%;
   max-width: 950px;
   margin: auto;
   min-height: 100vh;
-  .head {
-    width: 100%;
-    // background: url(../images/bg1.jpg) center;
-    background-size: cover;
-    margin-bottom: 25px;
-    // margin-top: 75px;
-    padding: 35px 0;
-    text-align: center;
-  }
   .input-area {
     input[type=text],
     input[type=submit],

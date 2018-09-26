@@ -1,9 +1,14 @@
 <template>
   <div class="timeline">
     <ul>
-      <transition-group name="post">
-        <Post class="post" v-for="(post, key) in posts" :key="key" :name="post.name" :message="post.message" :charNo="post.charNo" v-if="post" />
-      </transition-group>
+      <div v-if="isLoaded">
+        <transition-group name="post">
+          <Post class="post" v-for="(post, key) in posts" :key="key" :name="post.name" :message="post.message" :charNo="post.charNo" v-if="post" />
+        </transition-group>
+      </div>
+      <div class="loading-wrapper" v-else>
+        <div class="loading">loading...</div>
+      </div>
     </ul>
   </div>
 </template>
@@ -15,7 +20,8 @@ import Post from '@/components/Post'
 export default {
   data () {
     return {
-      posts: []
+      posts: [],
+      isLoaded: false
     }
   },
   components: {
@@ -26,6 +32,7 @@ export default {
     firebase.database().ref('posts').on('value', function (snapshot) {
       _this.posts = snapshot.val()
     })
+    this.isLoaded = true
   }
 }
 </script>
