@@ -38,7 +38,6 @@ export default {
         this.user = user
         var _this = this
         _this.users = this.user
-        console.log(_this.users.uid)
       } else {
         this.user = user
       }
