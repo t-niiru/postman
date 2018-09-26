@@ -4,7 +4,7 @@
       <div class="content">
         <img :src="require('../assets/images/' + charNo + '.gif')">
         <div class="user-name"><strong>Name:{{ name }}</strong></div>
-        <div class="massege-body"><span v-html="formattedPost" /></div>
+        <div class="post-message"><span v-html="formattedPost" /></div>
       </div>
     </div>
   </li>
@@ -17,15 +17,14 @@ import { link } from 'autolinker'
 export default {
   props: [
     'name',
-    'body',
+    'message',
     'charNo',
     'date',
     'uid'
   ],
   computed: {
     formattedPost () {
-      // return this.body
-      return link(h(this.body))
+      return link(h(this.message))
     }
   }
 }

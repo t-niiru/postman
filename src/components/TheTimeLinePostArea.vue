@@ -29,25 +29,25 @@ export default {
   ],
   data () {
     return {
-      body: '',
+      message: '',
       date: ''
     }
   },
   methods: {
     async doPost () {
-      if (this.body === '') {
+      if (this.message === '') {
         return
       }
       var charNo = this.displayName.charCodeAt(0) % 20
       firebase
         .database().ref('posts').push({
           name: this.displayName,
-          body: this.body,
+          message: this.message,
           charNo: charNo,
           date: moment(new Date()).format('YYYY/MM/DD HH:mm'),
           uid: this.uId
         })
-      this.body = ''
+      this.message = ''
     }
   },
   watch: {}

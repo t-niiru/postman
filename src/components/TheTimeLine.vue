@@ -2,7 +2,7 @@
   <div class="timeline">
     <ul>
       <transition-group name="post">
-        <Post class="post" v-for="(post, key) in posts" :key="key" :name="post.name" :body="post.body" :charNo="post.charNo" v-if="post" />
+        <Post class="post" v-for="(post, key) in posts" :key="key" :name="post.name" :message="post.message" :charNo="post.charNo" v-if="post" />
       </transition-group>
     </ul>
   </div>
