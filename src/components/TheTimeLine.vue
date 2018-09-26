@@ -1,6 +1,5 @@
 <template>
   <div class="timeline">
-    <p>投稿一覧</p>
     <ul>
       <transition-group name="post">
         <Post class="post" v-for="(post, key) in posts" :key="key" :name="post.name" :body="post.body" :charNo="post.charNo" v-if="post" />

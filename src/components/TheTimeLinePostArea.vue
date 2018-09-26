@@ -2,9 +2,7 @@
   <form class="postArea" @submit.prevent="doPost">
     <ul class="input-contents">
       <li class="input-name">
-        <b-field label="名前:">
-          <b-input maxlength="30" type="text" placeholder="What's name?" v-model.trim="name"></b-input>
-        </b-field>
+        <p>Name：{{ displayName }}</p>
       </li>
       <li class="input-body">
         <b-field label="Message:">
@@ -25,31 +23,31 @@ import firebase from 'firebase'
 import moment from 'moment'
 
 export default {
-  props: ['msg'],
+  props: [
+    'displayName',
+    'uId'
+  ],
   data () {
     return {
-      name: '',
       body: '',
       date: ''
     }
   },
   methods: {
     async doPost () {
-      if (this.body === '' || this.name === '') {
+      if (this.body === '') {
         return
       }
-      var body = this.body
-      var charNo = body.charCodeAt(0) % 20
+      var charNo = this.displayName.charCodeAt(0) % 20
       firebase
         .database().ref('posts').push({
-          name: this.name,
+          name: this.displayName,
           body: this.body,
           charNo: charNo,
-          date: moment(new Date()).format('YYYY/MM/DD HH:mm')
+          date: moment(new Date()).format('YYYY/MM/DD HH:mm'),
+          uid: this.uId
         })
-      this.name = ''
       this.body = ''
-      this.date = ''
     }
   },
   watch: {}

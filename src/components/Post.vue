@@ -18,11 +18,11 @@ export default {
     'name',
     'body',
     'charNo',
-    'date'
+    'date',
+    'uid'
   ],
   computed: {
     formattedPost () {
-      // console.log(this.charNo)
       return this.body
     }
   }

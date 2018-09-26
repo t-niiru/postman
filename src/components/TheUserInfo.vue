@@ -4,7 +4,7 @@
     <div class="media" v-if="user" key="login">
       <div class="media-content">
         <div class="contents">
-          <TheTimeLinePostArea/>
+          <TheTimeLinePostArea :displayName="users.displayName" :uId="users.uid"/>
           <a class="button is-primary" @click="logout">ログアウト</a>
         </div>
       </div>
@@ -25,7 +25,8 @@ export default {
   name: 'TheUserInfo',
   data () {
     return {
-      user: null
+      user: {},
+      users: []
     }
   },
   components: {
@@ -35,6 +36,9 @@ export default {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.user = user
+        var _this = this
+        _this.users = this.user
+        console.log(_this.users.uid)
       } else {
         this.user = user
       }
@@ -45,8 +49,10 @@ export default {
       firebase.auth().signInWithRedirect(provider).then(result => {
         this.user = result.user
         self.$data.userName.options = result.user
-        console.log(this.user)
       })
+      var _this = this
+      _this.users = this.user
+      console.log(_this.user)
     },
     logout () {
       firebase.auth().signOut()
