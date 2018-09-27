@@ -1,18 +1,18 @@
 <template lang="html">
   <div class="userinfo">
     <!-- ログイン後 -->
-    <div class="media" v-if="user" key="login">
+    <div class="signined" v-if="user" key="Signin">
       <div class="media-content">
         <div class="contents">
           <TheTimeLinePostArea :displayName="users.displayName" :uId="users.uid"/>
-          <a class="button is-primary" @click="logout">ログアウト</a>
         </div>
       </div>
+      <button class="button is-primary" :v-ga="$ga.event('user', 'click', 'label', 'Singnout')" @click="Singnout">Singnout</button>
     </div>
     <!-- ログイン前 -->
-    <div class="media" v-else key="logout">
+    <div class="signin" v-else key="logout">
       postするにはgoogleアカウントでログインしてください。
-      <a class="button is-primary" @click="login">Signin with Google</a>
+      <button class="button is-primary" :v-ga="$ga.event('user', 'click', 'label', 'Signin')" @click="Signin">Signin with Google</button>
     </div>
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
     })
   },
   methods: {
-    login () {
+    Signin () {
       firebase.auth().signInWithRedirect(provider).then(result => {
         this.user = result.user
         self.$data.userName.options = result.user
@@ -59,11 +59,8 @@ export default {
       var _this = this
       _this.users = this.user
     },
-    logout () {
+    Singnout () {
       firebase.auth().signOut()
-    },
-    set (user) {
-      console.log('test')
     }
   }
 }
