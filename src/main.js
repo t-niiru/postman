@@ -7,8 +7,13 @@ import App from './App'
 import firebase from 'firebase'
 import router from './router'
 import config from '../config/firebase.env.js'
+import VueAnalytics from 'vue-analytics'
 
 Vue.use(Buefy)
+Vue.use(VueAnalytics, {
+  id: 'UA-126543824-1',
+  router
+})
 
 firebase.initializeApp(config)
 
