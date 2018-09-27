@@ -7,7 +7,7 @@
           <TheTimeLinePostArea :displayName="users.displayName" :uId="users.uid"/>
         </div>
       </div>
-      <button class="button is-primary" :v-ga="$ga.event('user', 'click', 'label', 'Singnout')" @click="Singnout">Singnout</button>
+      <button class="button is-primary singn" :v-ga="$ga.event('user', 'click', 'label', 'Singnout')" @click="Singnout">Singnout</button>
     </div>
     <!-- ログイン前 -->
     <div class="signin" v-else key="logout">
@@ -65,3 +65,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.signined{
+  .singn{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+</style>

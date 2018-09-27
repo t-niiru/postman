@@ -1,23 +1,20 @@
-<template>
-  <div class="timeline">
-    <ul>
-      <div v-if="isLoaded">
-        <transition-group name="post">
-          <Post class="post" v-for="(post, key) in posts" :key="key" :name="post.name" :message="post.message" :charNo="post.charNo" v-if="post" />
-        </transition-group>
-      </div>
-      <div class="loading-wrapper" v-else>
-        <div class="loading">loading...</div>
-      </div>
+<template lang="html">
+  <div v-if="isLoaded">
+    <ul class="post-list">
+      <Post class="post" v-for="(post, key) in posts" :key="key" :name="post.name" :message="post.message" :charNo="post.charNo" v-if="post" />
     </ul>
+  </div>
+  <div class="loading-wrapper" v-else>
+    <div class="loading">loading...</div>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase'
-import Post from '@/components/Post'
+import Post from '@/components/TheTimeLinePostContents'
 
 export default {
+  name: 'TheTimeLine',
   data () {
     return {
       posts: [],
@@ -33,6 +30,7 @@ export default {
       _this.posts = snapshot.val()
     })
     this.isLoaded = true
+    console.log('TheTimeLine-end!!!')
   }
 }
 </script>
