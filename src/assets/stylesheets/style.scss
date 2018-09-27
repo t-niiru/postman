@@ -2,6 +2,7 @@
 @import 'common/format';
 
 body{
+  padding: 20px;
   font: {
     size: 1.4rem;
   }
@@ -11,7 +12,7 @@ body{
   width: 100%;
   max-width: 950px;
   margin: auto;
-  min-height: 100vh;
+  min-height: calc(100vh - 88px);
   .input-area {
     input[type=text],
     input[type=submit],

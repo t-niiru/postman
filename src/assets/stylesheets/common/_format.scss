@@ -1,21 +1,21 @@
 @font-face {
-  font-family: misaki_mincho;
-  src: url(../fonts/misaki_mincho.ttf) format("opentype");
+  font-family: DINPro-Bold,Arial,‘Lucida Grande’,‘Hiragino Kaku Gothic ProN’,‘ヒラギノ角ゴ ProN W6’,Meiryo,‘メイリオ’,sans-serif;
 }
 
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
   font-family: misaki_mincho !important;
   background: #000;
-  color: #fff;
+  color: #28fe14;
+  height: 100%;
 }
 
 h1 {
   margin: 0;
-  color: #fff;
 }
 
 a,
@@ -25,36 +25,34 @@ button {
 
 .button{
   &.is-primary{
-    color: #fff;
+    color: #28fe14;
     background: #000;
     padding: 5px;
-    border: 1px solid #fff;
+    border: 1px solid #28fe14;
   }
 }
 
 .button,
 .submit {
-  color: #fff;
+  color: #28fe14;
   background: #000;
   padding: 5px;
-  border: 1px solid #fff;
+  border: 1px solid #28fe14;
 }
+.title,
 .labels,
+.label,
 strong{
-  color: #fff;
-}
-
-.label {
-  color: #fff;
+  color: #28fe14;
 }
 
 .input,
 .textarea {
-  color: #fff;
+  color: #28fe14;
   background: #000;
-  border: 1px solid #fff;
+  border: 1px solid #28fe14;
   &::placeholder {
-    color: #fff;
+    color: #28fe14;
   }
   &:focus {
     outline: none;
@@ -82,26 +80,26 @@ strong{
   font-size: 1.2rem;
 }
 
-// .loading::before{
-//   display: block;
-//   width: 140px;
-//   height: 140px;
-//   left: 0;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   margin: auto;
-//   border: solid 3px #00d1b2;
-//   border-right-color: transparent;
-//   border-left-color: transparent;
-//   border-radius: 50%;
-//   overflow: hidden;
-//   content: "";
-//   position: absolute;
-//   animation: anim2 1.0s ease infinite;
-// }
-// @keyframes anim2 {
-//   0% { transform: rotate(0deg); }
-//   50% { transform: rotate(360deg); }
-//   100% { transform: rotate(720deg); }
-// }
+.loading::before{
+  display: block;
+  width: 140px;
+  height: 140px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: solid 3px #00d1b2;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  content: "";
+  position: absolute;
+  animation: anim2 1.0s ease infinite;
+}
+@keyframes anim2 {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(360deg); }
+  100% { transform: rotate(720deg); }
+}

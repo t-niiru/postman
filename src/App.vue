@@ -1,13 +1,11 @@
-<template>
-  <div id="app">
+<template lang="html">
+  <div id="app" class="wrapper">
     <h1 class="title">postman</h1>
-    <section class="container">
-      <div class="timeline">
-        <TheTimeLine/>
-      </div>
-      <div class="postarea">
-        <TheUserInfo/>
-      </div>
+    <section class="timeline">
+      <TheTimeLine/>
+    </section>
+    <section class="postarea">
+      <TheUserInfo/>
     </section>
   </div>
 </template>
@@ -28,7 +26,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .title {
-    color: #fff;
-  }
+.wrapper{
+  position: relative;
+  height: 100%;
+}
+.timeline{
+  height: calc(100% - 250px);
+  overflow-y: scroll;
+}
+.postarea{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+}
 </style>
